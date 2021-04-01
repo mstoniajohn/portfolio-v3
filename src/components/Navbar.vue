@@ -82,10 +82,10 @@
 						Projects
 					</a>
 				</li>
-				<li class="nav-item">
-					<a href="/blog" class="nav-links" @click="closeMobileMenu">
-						Blog
-					</a>
+				<li class="nav-item" @click="closeMobileMenu">
+					<router-link class="nav-links" :to="{ name: 'Blog' }"
+						>Blog</router-link
+					>
 				</li>
 				<li class="nav-item">
 					<a href="/contact" class="nav-links" @click="closeMobileMenu">
