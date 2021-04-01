@@ -22,10 +22,15 @@
 			</div>
 		</div>
 		<div id="content">
+			<h3>About me</h3>
 			lorem lorem ipsum lore lorem Lorem, ipsum dolor sit amet consectetur
 			adipisicing elit. Rem labore enim accusamus ab, repellat modi error odio
 			vel magnam quas consequatur ex possimus optio ea ducimus delectus
 			necessitatibus fuga! Rerum!
+			<div>
+				<h2>Images</h2>
+				<Pic />
+			</div>
 		</div>
 
 		<!-- <button @click="posts.pop()">Delete Post</button> -->
@@ -37,11 +42,13 @@
 import { ref, onMounted } from 'vue';
 import Spinner from '../components/Spinner';
 import Projects from '../components/Projects';
+import Pic from './Pic';
+
 import getPhotos from '../composables/getPhotos';
 
 export default {
 	name: 'Home',
-	components: { Spinner, Projects },
+	components: { Spinner, Projects, Pic },
 	setup() {
 		const textElement = ref(null);
 		// const error = ref(null);
