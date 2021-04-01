@@ -86,9 +86,6 @@
 					<a href="/blog" @click="closeMobileMenu">
 						Blog
 					</a>
-					<router-link class="nav-links" :to="{ name: 'Blog' }"
-						>Blog</router-link
-					>
 				</li>
 				<li class="nav-item">
 					<a href="/contact" class="nav-links" @click="closeMobileMenu">
