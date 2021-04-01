@@ -11,8 +11,6 @@
 		</div> -->
 		<div id="themes" class="d-flex justify-content-end p-2 mb-0">
 			<span ref="changesvg" @click="changeTheme" class="theme pr-2">
-				<!-- <i id="icon-theme" class="bi bi-brightness-high-fill"></i> -->
-
 				<svg
 					id="theme-icon"
 					xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +24,7 @@
 						d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"
 					/>
 				</svg>
-				<i id="icon-theme" class="bi bi-brightness-high-fill"></i>
+				<!-- <i id="icon-theme" class="bi bi-brightness-high-fill"></i> -->
 			</span>
 		</div>
 
@@ -37,7 +35,7 @@
 		>
 			<span class="navbar-brand mr-auto">
 				<a id="logo" href="/">
-					<img id="logoz" src="../assets/logo.svg" alt="logo" />
+					<img ref="logo" id="logoz" src="../assets/logo.svg" alt="logo" />
 				</a>
 			</span>
 			<div class="menu-icon navbar-toggler " @click="handleClick">
@@ -78,7 +76,7 @@
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="/projects" class="nav-links" @click="closeMobileMenu">
+					<a href="/pic" class="nav-links" @click="closeMobileMenu">
 						Projects
 					</a>
 				</li>
@@ -106,6 +104,7 @@ export default {
 	setup() {
 		const click = ref(false);
 		const menuActive = ref('nav-menu');
+		const changesvg = ref(null);
 		const closeMobileMenu = () => {
 			click.value = false;
 		};
@@ -116,25 +115,22 @@ export default {
 		};
 
 		const changeTheme = () => {
-			document.body.classList.toggle('light');
 			document.body.classList.toggle('dark');
-			let color = document.body.classList.value;
-
-			if (color === 'dark') {
+			let color = document.body.className;
+			console.log(color, typeof color);
+			if (color == 'dark') {
 				localStorage.setItem('theme', color);
-
-				// isDark && document.body.classList.add('dark');
-			} else if (!color) {
-				color = 'light';
-				localStorage.setItem('theme', color);
+			} else if (color === '') {
+				localStorage.setItem('theme', '');
+				console.log(color);
 			}
 			localStorage.setItem('theme', color);
 		};
 		const t = localStorage.getItem('theme');
 		document.body.classList.value = '';
-		document.body.classList.add(t);
+		t && document.body.classList.add(t);
 
-		const logo = document.getElementById('logoz');
+		const logo = ref(null);
 
 		onMounted(() => {
 			gsap.from('#logoz', {
@@ -146,7 +142,15 @@ export default {
 			});
 		});
 
-		return { changeTheme, closeMobileMenu, click, handleClick, menuActive };
+		return {
+			changeTheme,
+			closeMobileMenu,
+			click,
+			handleClick,
+			menuActive,
+			changesvg,
+			logo,
+		};
 	},
 };
 </script>
