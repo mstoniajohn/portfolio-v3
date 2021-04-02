@@ -15,12 +15,14 @@
 					<img class="img" :src="photo.urls.small" alt="" />
 				</a>
 				<span
-					class="details p-1"
+					class="details pt-2 p-1"
 					:style="{ backgroundColor: photo.color + '55' }"
 				>
 					<p class="text-center">
 						{{ photo.description ? photo.description : 'No description' }}
-						<br /><strong
+					</p>
+					<p class="m-2 text-center">
+						<strong
 							>By:
 							<a
 								:style="{
@@ -35,7 +37,7 @@
 							</a>
 						</strong>
 					</p>
-					<p class="text-center">
+					<p class="text-center d-flex justify-content-around">
 						<span
 							@click="downloadImage"
 							:style="{
@@ -56,7 +58,7 @@
 								View in New Tab
 							</a>
 						</span>
-						<span> {{ photo.likes }}&#x2661; </span>
+						<span> {{ photo.likes }} &#x2661;</span>
 					</p>
 				</span>
 			</div>
