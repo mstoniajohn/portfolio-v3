@@ -11,7 +11,7 @@
 		</form>
 		<div v-if="photos" class="grid">
 			<div class="img-div" v-for="photo in photos.results" :key="photo.id">
-				<a download="image" :href="photo.links.download">
+				<a :href="photo.links.download" download>
 					<img class="img" :src="photo.urls.small" alt="" />
 				</a>
 				<span
@@ -37,19 +37,23 @@
 					</p>
 					<p class="text-center">
 						<span
+							@click="downloadImage"
 							:style="{
 								fontWeight: 700,
 								borderBottom: '2px solid' + photo.color + 'ff',
 							}"
 							><a
+								ref="imageSrc"
 								:style="{
+									textDecoration: none,
 									backgroundColor: photo.color + '22',
-									color: photo.color,
+
 									color: 'var(--text)',
 								}"
 								:href="photo.links.download"
-								download="image.png"
-								>download
+								download
+							>
+								View in New Tab
 							</a>
 						</span>
 						<span> {{ photo.likes }}&#x2661; </span>
@@ -80,6 +84,7 @@ export default {
 		const photos = ref([]);
 		const term = ref('');
 		const error = ref(null);
+		const imageSrc = ref(null);
 
 		const headers = {
 			Authorization: 'Client-ID ' + `${process.env.VUE_APP_API_KEY}`,
@@ -105,6 +110,19 @@ export default {
 				//catches try block error
 				error.value = err.message; //eqls message created in if try block
 			}
+		};
+		// Using fetch
+		const downloadImage = async () => {
+			const image = await fetch(imageSrc.value.href);
+			const imageBlog = await image.blob();
+			const imageURL = URL.createObjectURL(imageBlog);
+
+			// const link = document.createElement('a');
+			imageSrc.value.href = imageURL;
+
+			// document.body.appendChild(link);
+			imageSrc.value.click();
+			// document.body.removeChild(link);
 		};
 
 		// const load = async () => {
@@ -142,7 +160,7 @@ export default {
 		// 	// 	.then((response) => (photos.value = response));
 		// });
 
-		return { term, photos, error, getPhotos };
+		return { term, photos, error, getPhotos, imageSrc, downloadImage };
 	},
 };
 </script>

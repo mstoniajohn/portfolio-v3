@@ -1,14 +1,5 @@
 <template>
 	<header>
-		<!-- <router-link :to="{ name: 'Home' }"><h1>Blog</h1></router-link> -->
-
-		<!-- <div class="nav">
-			<a href="/create">Create</a>
-			<router-link :to="{ name: 'Home' }">Home</router-link>
-			<router-link :to="{ name: 'Create' }">Create Post</router-link>
-			<router-link :to="{ name: 'About' }">About</router-link>
-			<router-link :to="{ name: 'Blog' }">Blog</router-link>
-		</div> -->
 		<div id="themes" class="d-flex justify-content-end p-2 mb-0">
 			<span ref="changesvg" @click="changeTheme" class="theme pr-2">
 				<svg
@@ -69,7 +60,52 @@
 					</svg>
 				</div>
 			</div>
+			<!-- <router-link :to="{ name: 'Home' }"><h1>Blog</h1></router-link> -->
+
 			<ul :class="menuActive">
+				<a href="/create">Create</a>
+				<li class="nav-item">
+					<router-link
+						:to="{ name: 'Home' }"
+						class="nav-links"
+						@click="closeMobileMenu"
+						>Home</router-link
+					>
+				</li>
+				<li class="nav-item">
+					<router-link
+						:to="{ name: 'Projects' }"
+						class="nav-links"
+						@click="closeMobileMenu"
+						>Projects</router-link
+					>
+				</li>
+				<li class="nav-item">
+					<router-link
+						:to="{ name: 'Create' }"
+						class="nav-links"
+						@click="closeMobileMenu"
+						>Create Post</router-link
+					>
+				</li>
+				<li class="nav-item">
+					<router-link
+						:to="{ name: 'Pic' }"
+						class="nav-links"
+						@click="closeMobileMenu"
+						>Photo Search</router-link
+					>
+				</li>
+				<li class="nav-item">
+					<router-link
+						:to="{ name: 'Blog' }"
+						class="nav-links"
+						@click="closeMobileMenu"
+						>Blog</router-link
+					>
+				</li>
+			</ul>
+			<!-- <ul :class="menuActive">
 				<li class="nav-item">
 					<a href="/" class="nav-links" @click="closeMobileMenu">
 						Home
@@ -90,7 +126,7 @@
 						Contact
 					</a>
 				</li>
-			</ul>
+			</ul> -->
 		</nav>
 	</header>
 </template>
