@@ -11,43 +11,50 @@
 		</form>
 		<div v-if="photos" class="grid">
 			<div class="img-div" v-for="photo in photos.results" :key="photo.id">
-				<a download="image" href="{{photo.links.download}}">
+				<a download="image" :href="photo.links.download">
 					<img class="img" :src="photo.urls.small" alt="" />
 				</a>
-
-				<span class="details">
-					<strong
-						>By:
-						<a :href="photo.user.portfolio_url" target="_blank">{{
-							photo.user.name
-						}}</a></strong
-					>
-					<span>&#x2661; {{ photo.likes }} color: {{ photo.color }}</span>
-					<span
-						><a href="{{photo.links.download}}" download="image.png"
-							>download</a
-						></span
-					>
+				<span
+					class="details p-1"
+					:style="{ backgroundColor: photo.color + '55' }"
+				>
+					<p class="text-center">
+						{{ photo.description ? photo.description : 'No description' }}
+						<br /><strong
+							>By:
+							<a
+								:style="{
+									fontWeight: 700,
+									borderBottom: '2px solid' + photo.color + 'ff',
+									color: 'var(--text)',
+								}"
+								:href="photo.user.portfolio_url"
+								target="_blank"
+							>
+								{{ photo.user.name }}
+							</a>
+						</strong>
+					</p>
+					<p class="text-center">
+						<span
+							:style="{
+								fontWeight: 700,
+								borderBottom: '2px solid' + photo.color + 'ff',
+							}"
+							><a
+								:style="{
+									backgroundColor: photo.color + '22',
+									color: photo.color,
+									color: 'var(--text)',
+								}"
+								:href="photo.links.download"
+								download="image.png"
+								>download
+							</a>
+						</span>
+						<span> {{ photo.likes }}&#x2661; </span>
+					</p>
 				</span>
-				<p>{{ photo.description }}</p>
-				<p>
-					<svg
-						fill="none"
-						height="24"
-						stroke="#000"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						stroke-width="2"
-						viewBox="0 0 24 24"
-						width="24"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<rect height="20" rx="5" ry="5" width="20" x="2" y="2" />
-						<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-						<line x1="17.5" x2="17.5" y1="6.5" y2="6.5" />
-					</svg>
-					@{{ photo.user.instagram_username }}
-				</p>
 			</div>
 		</div>
 		<div v-else>

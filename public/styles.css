@@ -14,6 +14,24 @@
 	margin: 0;
 	display: inline-block;
 }
+.dark {
+	--bg: var(--gray5);
+	--bg-nav: linear-gradient(to right, var(--gray5), var(--gray6));
+	--bg-dropdown: var(--gray6);
+	--text: var(--gray0);
+	--text-secondary: var(--gray1);
+	--border-color: var(--purple);
+	--bg-solar: var(--blue);
+}
+.light {
+	--bg: var(--white);
+	--bg-nav: linear-gradient(to right, var(--gray1), var(--gray3));
+	--bg-dropdown: var(--gray0);
+	--text: var(--black);
+	--border-color: var(--blue);
+	--bg-solar: var(--yellow);
+	--text-secondary: var(--gray6);
+}
 /* Animation */
 .anim-typewriter {
 	width: 0;
@@ -55,7 +73,7 @@ ul {
 }
 a {
 	text-decoration: none;
-	color: var(--text-secondary);
+	color: var(--text-secondary) !important;
 }
 h1,
 h2 {
@@ -67,24 +85,7 @@ h2 {
 .theme {
 	cursor: pointer;
 }
-.dark {
-	--bg: var(--gray5);
-	--bg-nav: linear-gradient(to right, var(--gray5), var(--gray6));
-	--bg-dropdown: var(--gray6);
-	--text: var(--gray0);
-	--text-secondary: var(--gray1);
-	--border-color: var(--purple);
-	--bg-solar: var(--blue);
-}
-.light {
-	--bg: var(--white);
-	--bg-nav: linear-gradient(to right, var(--gray1), var(--gray3));
-	--bg-dropdown: var(--gray0);
-	--text: var(--black);
-	--border-color: var(--blue);
-	--bg-solar: var(--yellow);
-	--text-secondary: var(--gray6);
-}
+
 /* Margin */
 .my-1 {
 	margin: 1rem 0;
