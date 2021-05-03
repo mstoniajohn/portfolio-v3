@@ -63,23 +63,6 @@
 			<!-- <router-link :to="{ name: 'Home' }"><h1>Blog</h1></router-link> -->
 
 			<ul :class="menuActive">
-				<a href="/create">Create</a>
-				<li class="nav-item">
-					<router-link
-						:to="{ name: 'Home' }"
-						class="nav-links"
-						@click="closeMobileMenu"
-						>Home</router-link
-					>
-				</li>
-				<li class="nav-item">
-					<router-link
-						:to="{ name: 'Projects' }"
-						class="nav-links"
-						@click="closeMobileMenu"
-						>Projects</router-link
-					>
-				</li>
 				<li class="nav-item">
 					<router-link
 						:to="{ name: 'Create' }"
