@@ -1,7 +1,7 @@
 <template>
-	<div class="text-center">
-		<h2>{{ text }}</h2>
-		<div class="div">
+	<div class="text-center mt-5 mb-5">
+		<h2 class="text-3xl">{{ text }}</h2>
+		<div class="font-bold p-3">
 			{{ timestamp }}
 		</div>
 	</div>

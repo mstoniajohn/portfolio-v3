@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<Navbar />
+		<header class="text-center p-12 bg-blue-900 text-white">
+			<h1 class="text-3xl"><i class="fa fa-viruses"></i> Covid Tracker</h1>
+		</header>
 		<router-view />
 	</div>
 </template>

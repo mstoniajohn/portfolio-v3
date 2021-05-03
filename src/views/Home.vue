@@ -1,7 +1,5 @@
 <template>
-	<div class="container">
-		home
-		<button @click="handleClick">fetch</button>
+	<div class="container mb-10">
 		<div v-if="!loading">
 			<DataTitle :text="title" :dataDate="dataDate" />
 			<DataBoxes :stats="stats" />
@@ -9,7 +7,7 @@
 			<button
 				@click="clearCountryData"
 				v-if="stats.Country"
-				class="bg-green-700 text-white rounded p-3 mt-10 hover:bg-green-600 focus:outline-none"
+				class="bg-blue-700 text-white rounded p-3 mt-10 hover:bg-blue-600 focus:outline-none"
 			>
 				Clear Country
 			</button>
