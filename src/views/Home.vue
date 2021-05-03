@@ -27,7 +27,7 @@
 // @ is an alias to /src
 import { ref, onMounted, onBeforeMount } from 'vue';
 import Spinner from '../components/Spinner';
-import Projects from '../components/Projects';
+
 import DataBoxes from '@/components/DataBoxes';
 import CountrySelect from '@/components/CountrySelect';
 
@@ -38,7 +38,7 @@ import getPhotos from '../composables/getPhotos';
 
 export default {
 	name: 'Home',
-	components: { Spinner, Projects, Pic, DataTitle, DataBoxes, CountrySelect },
+	components: { Spinner, Pic, DataTitle, DataBoxes, CountrySelect },
 	setup() {
 		const data = ref([]);
 		const loadData = ref([]);

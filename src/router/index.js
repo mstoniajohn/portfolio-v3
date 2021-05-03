@@ -4,7 +4,6 @@ import Details from '../views/Details.vue';
 import Create from '../views/Create.vue';
 import Tag from '../views/Tag.vue';
 import Pic from '../views/Pic.vue';
-import Projects from '../components/Projects.vue';
 
 import Blog from '../views/Blog.vue';
 
@@ -39,12 +38,7 @@ const routes = [
 		component: Pic,
 		props: true,
 	},
-	{
-		path: '/projects',
-		name: 'Projects',
-		component: Projects,
-		props: true,
-	},
+
 	{
 		path: '/RealTime',
 		name: 'RealTime',
